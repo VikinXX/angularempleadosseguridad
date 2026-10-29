@@ -25,12 +25,8 @@ export class SubordinadosComponent implements OnInit{
   }
 
   ngOnInit() {
-    if(!sessionStorage.getItem("token")){
-      this._router.navigate(["/Login"]);
-    }else{
-      this.getSubordinados();
+    this.getSubordinados();
 
-    }
   }
 
 }

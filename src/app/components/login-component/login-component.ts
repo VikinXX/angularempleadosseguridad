@@ -1,6 +1,7 @@
-import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit, inject } from '@angular/core';
 import { ServiceEmpleados } from '../../service/Service.empleados';
 import { Router } from '@angular/router';
+import { ServiceAuthEmpleados } from '../../service/Service.auth.empleados';
 
 @Component({
   selector: 'app-login-component',
@@ -10,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  private _serviceAuthEmpleados: ServiceAuthEmpleados = inject(ServiceAuthEmpleados);
   @ViewChild("username") username!: ElementRef;
   @ViewChild("password") password!: ElementRef;
 
@@ -24,10 +26,9 @@ export class LoginComponent implements OnInit {
     }
 
     this._service.login(object).subscribe((res: any) => {
-      sessionStorage.setItem("token", res.response);
-
-      console.log(sessionStorage.getItem("token"));
-
+      //sessionStorage.setItem("token", res.response);
+      //console.log(sessionStorage.getItem("token"));
+      this._serviceAuthEmpleados.almacenarEmpleado(res.response);
       this._router.navigate(["/"]);
       
     })

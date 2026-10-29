@@ -10,6 +10,8 @@ import { FormsModule } from '@angular/forms';
 import { ServiceEmpleados } from './service/Service.empleados';
 import { EmpleadosComponent } from './components/empleados-component/empleados-component';
 import { SubordinadosComponent } from './components/subordinados-component/subordinados-component';
+import { AuthGuard } from './auth-guard';
+import { EjemplosSignal } from './components/ejemplos-signal/ejemplos-signal';
 
 @NgModule({
   declarations: [
@@ -20,9 +22,10 @@ import { SubordinadosComponent } from './components/subordinados-component/subor
     MenuComponent,
     EmpleadosComponent,
     SubordinadosComponent,
+    EjemplosSignal,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
-  providers: [provideBrowserGlobalErrorListeners(), ServiceEmpleados],
+  providers: [provideBrowserGlobalErrorListeners(), ServiceEmpleados, AuthGuard],
   bootstrap: [App],
 })
 export class AppModule {}

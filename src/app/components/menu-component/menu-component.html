@@ -18,6 +18,12 @@
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/Subordinados']">Subordinados</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/Signal']">Signal</a>
+        </li>
+        <li class="nav-item">
+          <p>Contador: {{contador()}}</p>
+        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" [routerLink]="['/']" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown
@@ -33,10 +39,13 @@
           <a class="nav-link disabled" aria-disabled="true">Disabled</a>
         </li>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      @if(user(); as usuario){
+        <p>{{usuario.apellido}}</p>
+        <button (click)="logout()">Log Out</button>
+        
+      }@else {
+
+      }
     </div>
   </div>
 </nav>

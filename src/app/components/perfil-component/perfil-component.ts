@@ -25,12 +25,8 @@ export class PerfilComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if(!sessionStorage.getItem("token")){
-      this._router.navigate(["/Login"]);
-    }else{
-      this.getPerfil();
-
-    }
+    this.getPerfil();
+    
   }
 
 }

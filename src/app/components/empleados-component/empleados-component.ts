@@ -23,12 +23,7 @@ export class EmpleadosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if(!sessionStorage.getItem("token")){
-      this._router.navigate(["/Login"]);
-    }else{
       this.getEmpleados();
-
-    }
   }
 
 }
